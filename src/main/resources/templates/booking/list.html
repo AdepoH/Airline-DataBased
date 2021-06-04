@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adeline Air System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/modern-business.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/design.css}">
+</head>
+<body>
+<!-- Navigations -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark top-nav">
+    <div class="container text-light">
+        <a class="navbar-brand" th:href="@{/}"><img class="logo-img" src="images/Superfly.png">SuperFly</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navber-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/user/sign_up}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/feedback/contact}">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Aircraft
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" th:href="@{/aircrafts/create}">Create Aircraft</a>
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">All Aircrafts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Flight
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">Create Flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/list}">All Flights</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manage Booking
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/}">Book A Flight</a>
+                        <a class="dropdown-item" th:href="@{/bookings/list}">All Bookings</a>
+                        <a class="dropdown-item" th:href="@{/passengers/list}">All Passengers</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+<h2> List Of Bookings </h2>
+<table>
+
+    <tr>
+        <th>Id</th>
+        <th>BookingNumber</th>
+        <th>Flight</th>
+        <th>BookingDate</th>
+        <th>Passenger</th>
+        <th>SeatNumber</th>
+    </tr>
+
+    <tr th:each="row : *{bookings}">
+        <td th:text="${row.getId()}"></td>
+        <td th:text="${row.getBookingNumber()}"></td>
+        <td th:text="${row.getFlight()}"></td>
+        <td th:text="${row.getBookingDate()}"></td>
+        <td th:text="${row.getPassenger()}"></td>
+        <td th:text="${row.getSeatNumber()}"></td>
+        <td><a th:href="@{/bookings/edit/{id}(id=${row.getId()})}">Edit</a> | <a th:href="@{/bookings/delete/{id}(id=${row.getId()})}">Remove</a></td>
+    </tr>
+</table>
+<!--<p th:text="${message}"></p>-->
+
+</body>
+</html>

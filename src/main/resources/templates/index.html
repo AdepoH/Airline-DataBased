@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Home - SuperFly Airline</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/modern-business.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/design.css}">
+
+
+</head>
+
+<body class="ind-image">
+
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="images/Superfly.png">
+            <i>SUPERFLY</i>
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Flight
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/flights/availableFlight}">List Available flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/list}">List All Flight</a>
+                        <a class="dropdown-item" th:href="@{/index}">Search Flight</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Booking
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/bookings/create}">Book Flight</a>
+                        <a class="dropdown-item" th:href="@{/bookings/edit}">Edit Bookings</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/adminIndex}">Admin Login</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- Header with Carousel -->
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('/images/booking.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="text-dark"> SUPERFLY</h3>
+                    <p><h2>2020 Award Winning Airline For The Fifth Consecutive Time</h2></p>
+                </div>
+            </div>
+
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/images/nightview.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Lodge At One Of Our 5-Star Hotels</h2>
+                </div>
+            </div>
+
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/images/passenger.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Feel safe and secured </h2>
+                </div>
+            </div>
+
+            <!-- Slide Four - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('/images/flight.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Lets Go On A World Tour !!!</h3>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <div class="container">
+
+        <div class="row mt-5 mb-5">
+
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="header-title">Flight Search</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form th:action="@{/flights/availableFlight}" method="get">
+
+                            <div class="form-group">
+                                <label for="from">From</label>
+                                <select name="takeOffPoint" class="form-control">
+                                    <option value="">-- Select State--</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Abuja">Abuja</option>
+                                    <option value="Ilorin">Ilorin</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="to">To</label>
+                                <select name="destination" class="form-control">
+                                    <option value="">-- Select State--</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Abuja">Abuja</option>
+                                    <option value="Ilorin">Ilorin</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="takeOffTime">Departure Time</label>
+                                <input type="date" name="takeOffTime" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-outline-secondary" value="Search Flight">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+
+                <div class="alert alert-info">
+                    <p>
+                        I am immensely proud of Superfly Airways and it is an honour on behalf of my workforce
+                        and my country to collect this prestigious award and for Superfly Airways to be named Airline of the Year.
+                        It is extremely gratifying to be honoured with these achievements,
+                        which recognise the outstanding efforts of our employees in the air and on the ground.
+                        These awards are widely regarded as the industry's benchmark for Excellence.
+                        For us, the awards clearly reflect a vote of confidence from global travellers, who acknowledge
+                        and appreciate our continuous drive to deliver high-quality service.
+                        To be voted 'World's Best Airline' by millions of discerning travellers really is something for our 60,000 strong workforce to be proud of.
+                        The Skytrax World Airline Awards represent a global benchmark for airline excellence because they go straight to the source - the traveller.
+                        To be recognised and named by our guests as the best in the world is an affirmation of the value of our unique philosophy and innovation.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid bg-light p-5">
+
+        <div class="row mt-3 mb-3">
+
+            <div class="col-12">
+                <h1 class="text-center">Places you'll love to visit</h1>
+            </div>
+
+        </div>
+
+        <div class="row mb-3 destination-img">
+
+            <div class="col-4">
+                <img src="images/snakedrone.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="images/droneview.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="images/aerotree.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+        </div>
+
+        <div class="row mb-3 destination-img">
+
+            <div class="col-4">
+                <img src="images/treeview.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="images/treewater.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="images/blueview.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; SUPERFLY 2021</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $('.carousel').carousel({
+        interval: 5000
+    })
+</script>
+
+</body>
+
+
+</html>

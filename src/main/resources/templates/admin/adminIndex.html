@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Home - Admin</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/modern-business.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/design.css}">
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="../index.html">
+            Superfly
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Aircraft
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" th:href="@{/aircrafts/create}">Create Aircraft</a>
+                        <a class="dropdown-item" th:href="@{/aircrafts/edit}">Update Aircraft</a>
+                        <a class="dropdown-item" th:href="@{/aircrafts/list}">List Aircraft</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Flight
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/flights/create}">Create flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/availableFlight}">Available flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/edit}">Update Flight</a>
+                        <a class="dropdown-item" th:href="@{/flights/list}">List Flight</a>
+                        <a class="dropdown-item" th:href="@{/index}">Search Flight</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bookings
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/bookings/list}">All Bookings</a>
+                        <a class="dropdown-item" th:href="@{/bookings/edit}">Update Bookings</a>
+                        <a class="dropdown-item" th:href="@{/bookings/list}">Pending Bookings</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Passenger
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" th:href="@{/passengers/create}">Create Passenger</a>
+                        <a class="dropdown-item" th:href="@{/passengers/edit}">	Update Passenger's Profile</a>
+                        <a class="dropdown-item" th:href="@{/passengers/list}">List All Passengers</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="service.html">Costumer Service</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">System</a>
+                </li>
+                <br>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Logout</a>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+
+<main>
+
+    <div class="container">
+
+        <div class="row mt-5 mb-5">
+
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="header-title">Flight Search</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form action="" method="post">
+
+                            <div class="form-group">
+                                <label for="from">From</label>
+                                <select name="takeOffPoint" class="form-control">
+                                    <option value="">-- Select State--</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Abuja">Abuja</option>
+                                    <option value="Ilorin">Ilorin</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="to">To</label>
+                                <select name="destination" class="form-control">
+                                    <option value="">-- Select State--</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Abuja">Abuja</option>
+                                    <option value="Ilorin">Ilorin</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="takeOffTime">Departure Time</label>
+                                <input type="date" name="" id="" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-block btn-outline-secondary" value="Search Flight">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+
+                <div class="alert alert-info">
+                    <p>
+                    <p><h1>Notice To All Superfly Workers</h1></p>
+                    <br>
+                    <br>
+                    <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et assumenda hic,
+                    enim nesciunt voluptatem voluptas suscipit.
+                    Molestiae cumque ducimus sapiente numquam temporibus eos, sunt consequuntur illum
+                    itaque dignissimos atque eius?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et assumenda hic,
+                    enim nesciunt voluptatem voluptas suscipit.
+                    Molestiae cumque ducimus sapiente numquam temporibus eos, sunt consequuntur illum
+                    itaque dignissimos atque eius?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et assumenda hic,
+                    enim nesciunt voluptatem voluptas suscipit.
+                    Molestiae cumque ducimus sapiente numquam temporibus eos, sunt consequuntur illum
+                    itaque dignissimos atque eius?
+                    </p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid bg-light p-5">
+
+        <div class="row mt-3 mb-3">
+
+            <div class="col-12">
+                <h1 class="text-center">Edit Top Destination</h1>
+            </div>
+
+        </div>
+
+        <div class="row mb-3 destination-img">
+
+            <div class="col-4">
+                <img src="../../static/images/high-definition-Windows-hi-tech-wallpaper.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="../../static/images/Gray-Wallpaper_Windows_10_HD_2880x1800.png" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="../../static/images/810.png" class="img-fluid img-thumbnail">
+            </div>
+
+        </div>
+
+        <div class="row mb-3 destination-img">
+
+            <div class="col-4">
+                <img src="../../static/images/Windows-8-Wallpaper-Windows-7-Spinoff-2_2.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="../../static/images/Microsoft.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+            <div class="col-4">
+                <img src="../../static/images/Windows-8-Wallpaper-Windows-7-Spinoff-White-2_2.jpg" class="img-fluid img-thumbnail">
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; SUPERFLY 2020</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $('.carousel').carousel({
+        interval: 5000
+    })
+</script>
+</body>
+</html>
